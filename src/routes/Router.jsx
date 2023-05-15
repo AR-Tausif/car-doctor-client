@@ -6,6 +6,7 @@ import Login from "../shared/pages/login/Login";
 import Signup from "../shared/pages/signup/Signup";
 import PrivateRoute from "./PrivateRoute";
 import OnPrivate from "./OnPrivate";
+import OrderReview from "../shared/pages/orderReview/OrderReview";
 
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:3500/services/${params.id}`)
             }
         ]
+    },
+    {
+        path: "/order",
+        element: <PrivateRoute> <OrderReview /> </PrivateRoute>,
     },
     {
         path: "/login",

@@ -15,11 +15,9 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         const data = { email, password }
-        console.log(data);
         userSignInWithEmail(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
                 navigate(from)
             })
             .catch((error) => {

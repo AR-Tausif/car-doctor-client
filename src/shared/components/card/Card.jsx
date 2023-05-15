@@ -3,7 +3,6 @@ import { FaArrowCircleRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 const Card = ({ service }) => {
     const { img, price, title, _id } = service;
-    console.log(service);
     return (
         <div className="card  border shadow-sm">
             <figure className="px-10 pt-10">
