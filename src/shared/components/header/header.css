@@ -1,0 +1,6 @@
+.header_hero_banner {
+  background-image: url("/public/assets/images/checkout/checkout.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
