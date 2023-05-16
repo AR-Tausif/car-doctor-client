@@ -11,13 +11,18 @@ const OrderReview = () => {
     // console.log(user.email);
     const url = `http://localhost:3500/bookings?email=${user?.email}&sort=1`
     useEffect(() => {
-        fetch(url)
+        fetch(url, {
+            method: "GET",
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('car-access-token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 setOrders(data)
             })
-    }, [])
+    }, [url])
 
     const handleDeleteOrder = id => {
         const progress = confirm("Are you sure for delete?")

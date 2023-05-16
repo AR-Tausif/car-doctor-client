@@ -14,11 +14,25 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        const data = { email, password }
         userSignInWithEmail(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                navigate(from)
+                const user = {
+                    email: loggedUser.email,
+                }
+                fetch("http://localhost:3500/jwt", {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('car-access-token', data.token)
+                    })
+                // navigate(from)
             })
             .catch((error) => {
                 // const errorCode = error.code;

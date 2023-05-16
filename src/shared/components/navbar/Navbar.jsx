@@ -7,8 +7,12 @@ const Navbar = ({ items }) => {
     const { user, userSignOut } = useContext(AuthContext);
     const handleSignOut = () => {
         userSignOut()
-            .then(() => { })
-            .catch((error => { console.log(error) }))
+            .then(() => {
+                localStorage.removeItem('car-access-token')
+            })
+            .catch((error => {
+                console.log(error)
+            }))
     }
     return (
         <div className="container mx-auto ">
